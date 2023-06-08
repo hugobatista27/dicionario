@@ -1,13 +1,12 @@
+import MainContext from './contexts/MainContext.js'
+
 
 function App() {
-
+  const ValueContexts: any = []
   return (
-    <>
-      <h1>teste</h1>
-      <p>sfkjdsf</p>
-      <p>doklmgdf</p>
-      <p>sdlkfmdsf</p>
-    </>
+  <MainContext.Provider value={{ValueContexts}}>
+
+  </MainContext.Provider>
   )
 }
 
