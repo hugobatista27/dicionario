@@ -1,5 +1,9 @@
-import React from "react";
+/* import React, { createContext} from "react";
 
-const MainContext: any = React.createContext<undefined>(undefined);
+// Defina uma tipagem genérica para o seu contexto
+type AnyContext<T = any> = React.Context<T>;
 
-export default MainContext;
+// Crie o contexto utilizando a tipagem genérica
+const MainContext: AnyContext = createContext();
+
+export default MainContext; */
