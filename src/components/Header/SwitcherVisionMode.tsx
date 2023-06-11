@@ -1,6 +1,11 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const StyledLabel = styled.label`
+import ICON_MOON from './assets/lua.svg';
+import ICON_SUN from './assets/sol.svg';
+
+
+const StyledLabel = styled.label<{$mode?: boolean}>`
     position: relative;
     display: inline-block;
 
@@ -8,7 +13,7 @@ const StyledLabel = styled.label`
     height: 20px;
     border-radius: 10px;
 
-    background-color: black;
+    background-color: ${props => props.$mode ? 'black': 'white'};
 
     input {
         opacity: 0;
@@ -35,17 +40,9 @@ const StyledLabel = styled.label`
         left: 2px;
         bottom: 2px;
         border-radius: 50%;
-        background-color: white;
+        background-color: ${props => props.$mode ? 'white': 'black'};
         -webkit-transition: .4s;
         transition: .4s;
-    }
-
-    input:checked + & {
-        background-color: #2196F3;
-    }
-
-    input:focus + & {
-        box-shadow: 0 0 1px #2196F3;
     }
 
     input:checked + span:before {
@@ -55,11 +52,30 @@ const StyledLabel = styled.label`
     }
 `
 
-export function Switcher() {
+const Div = styled.div`
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
+export function Switcher({children} : {children: React.ReactNode}) {
+    const [isNightMode, setIsNightMode] = useState<boolean>(true)
+
     return (
-        <StyledLabel htmlFor="modo-switcher">
-            <input type="checkbox" id="modo-switcher"/>
-            <span></span>
-        </StyledLabel>
+        <Div>
+            <StyledLabel 
+                htmlFor="modo-switcher"
+                $mode={isNightMode}>
+                <input type="checkbox" id="modo-switcher" onChange={() => setIsNightMode(!isNightMode)}/>
+                <span></span>
+            </StyledLabel>
+            { isNightMode && (
+                <img src={ICON_SUN} alt="light mode" />
+            )} 
+            { !isNightMode && (
+                <img src={ICON_MOON} alt="dark mode" />
+            )}
+        </Div>
     )
 }

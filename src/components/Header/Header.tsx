@@ -6,8 +6,8 @@ import LOGO_BOOK from './assets/livro.svg';
 // components 
 import { Switcher } from './SwitcherVisionMode';
 
-import MainContext from '../../contexts/MainContext';
-import { useContext } from 'react';
+/* import MainContext from '../../contexts/MainContext';
+import { useContext } from 'react'; */
 
 const StyledHeader = styled.header`
     display: flex;
@@ -22,7 +22,7 @@ const StyledHeader = styled.header`
 `;
 
 export function Header() {
-    const { selectedFont, setSelectedFont } = useContext(MainContext);
+    //const { selectedFont, setSelectedFont } = useContext(MainContext);
 
     return (
         <StyledHeader>
@@ -32,7 +32,8 @@ export function Header() {
                 <option value="noserif">San Serif</option>
                 <option value="mono">Mono</option>
             </select>
-            <Switcher/>
+            <Switcher>
+            </Switcher>
         </StyledHeader>
     )
 }

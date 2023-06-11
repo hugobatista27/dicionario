@@ -3,7 +3,7 @@ import { Header } from './components/Header/Header.js';
 import { Content } from './components/Content/Content.js';
 
 import styled from 'styled-components';
-import { useState } from 'react';
+//import { useState } from 'react';
 
 const BodyStyle = styled.div`
 	
