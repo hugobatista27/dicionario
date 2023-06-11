@@ -59,7 +59,7 @@ const Div = styled.div`
     justify-content: space-between;
 `
 
-export function Switcher({children} : {children: React.ReactNode}) {
+export function Switcher() {
     const [isNightMode, setIsNightMode] = useState<boolean>(true)
 
     return (

@@ -32,8 +32,7 @@ export function Header() {
                 <option value="noserif">San Serif</option>
                 <option value="mono">Mono</option>
             </select>
-            <Switcher>
-            </Switcher>
+            <Switcher/>
         </StyledHeader>
     )
 }
