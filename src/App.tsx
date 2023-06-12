@@ -1,6 +1,7 @@
 //import MainContext from './contexts/MainContext.js';
 import { Header } from './components/Header/Header.js';
 import { Content } from './components/Content/Content.js';
+import { Footer} from './components/Footer/Footer.js'
 
 import styled from 'styled-components';
 //import { useState } from 'react';
@@ -24,6 +25,7 @@ function App() {
 			{/* <MainContext.Provider value={ValueContexts}> */}
 				<Header/>
 				<Content/>
+				<Footer/>
 			{/* </MainContext.Provider> */}
 		</BodyStyle>
 	)
