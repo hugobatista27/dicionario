@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import ICON_MOON from './assets/lua.svg';
 import ICON_SUN from './assets/sol.svg';
+import { useAppContext } from '../../contexts/hook';
 
 
-const StyledLabel = styled.label<{$mode?: boolean}>`
+const StyledLabel = styled.label<{$mode?: string}>`
     position: relative;
     display: inline-block;
 
@@ -13,7 +13,7 @@ const StyledLabel = styled.label<{$mode?: boolean}>`
     height: 20px;
     border-radius: 10px;
 
-    background-color: ${props => props.$mode ? 'black': 'white'};
+    background-color: ${props => props.$mode === 'dark' ? 'black': 'white'};
 
     input {
         opacity: 0;
@@ -40,7 +40,7 @@ const StyledLabel = styled.label<{$mode?: boolean}>`
         left: 2px;
         bottom: 2px;
         border-radius: 50%;
-        background-color: ${props => props.$mode ? 'white': 'black'};
+        background-color: ${props => props.$mode === 'dark' ? 'white': 'black'};
         -webkit-transition: .4s;
         transition: .4s;
     }
@@ -59,23 +59,32 @@ const Div = styled.div`
     justify-content: space-between;
 `
 
+function iconSwitcher(selectedTheme: string) {
+    return selectedTheme === 'dark' ? 
+    <img src={ICON_SUN} alt="light mode" /> : 
+    <img src={ICON_MOON} alt="dark mode" />
+}
+
 export function Switcher() {
-    const [isNightMode, setIsNightMode] = useState<boolean>(true)
+    const { state, toggleTheme } = useAppContext();
+
 
     return (
         <Div>
             <StyledLabel 
                 htmlFor="modo-switcher"
-                $mode={isNightMode}>
-                <input type="checkbox" id="modo-switcher" onChange={() => setIsNightMode(!isNightMode)}/>
+                $mode={state.selectedTheme}
+            >
+                <input 
+                    type="checkbox" 
+                    id="modo-switcher" 
+                    onChange={toggleTheme}
+                />
                 <span></span>
             </StyledLabel>
-            { isNightMode && (
-                <img src={ICON_SUN} alt="light mode" />
-            )} 
-            { !isNightMode && (
-                <img src={ICON_MOON} alt="dark mode" />
-            )}
+            <label htmlFor="modo-switcher">
+                {iconSwitcher(state.selectedTheme)}
+            </label>
         </Div>
     )
 }

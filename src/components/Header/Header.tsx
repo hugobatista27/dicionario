@@ -22,7 +22,6 @@ const StyledHeader = styled.header`
 `;
 
 export function Header() {
-    //const { selectedFont, setSelectedFont } = useContext(MainContext);
 
     return (
         <StyledHeader>
