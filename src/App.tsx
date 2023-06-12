@@ -7,9 +7,9 @@ import styled from 'styled-components';
 //import { useState } from 'react';
 
 const BodyStyle = styled.div`
-	
     max-width: 740px;
 	margin: auto;
+	padding: 0 20px;
 `
 
 function App() {
