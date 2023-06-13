@@ -30,7 +30,7 @@ const SearchArea = styled.label`
 export default function SearchBar() {
     const [isEditing, setIsEditing] = useState(false);
     const [search, setSearch] = useState<string>('');
-    const { setSearchResult } = useAppContext()
+    const { setSearchResult } : any = useAppContext()
 
     useEffect(() => {
         if (isEditing) {
