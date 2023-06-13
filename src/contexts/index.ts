@@ -2,12 +2,13 @@ import { createContext } from 'react';
 
 export const INITIAL_STATE = {
     selectedTheme: 'light',
-    selectedFont: 'san-serif'
+    selectedFont: 'serif'
 };
 
 export type InitialStateType = typeof INITIAL_STATE;
 
 export const AppContext = createContext({
     state: INITIAL_STATE,
-    toggleTheme: () => {}
+    toggleTheme: () => {},
+    changeFont: (font: string) => {}
 });

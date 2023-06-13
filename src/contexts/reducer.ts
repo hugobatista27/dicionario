@@ -6,17 +6,19 @@ export const appContextReducer = (
     state = INITIAL_STATE, 
     action: IDispatchAction
 ): InitialStateType => {
+
     let tmpState = { ...state };
-    console.log(tmpState)
 
     switch (action.type) {
         case AppContextActions.ToggleTheme:
             tmpState.selectedTheme = state.selectedTheme === 'light' ? 'dark' : 'light'
-
             break;
-
+        case AppContextActions.SelectedFont:
+            state.selectedFont = action.payload
+            break;
         default:
             throw new Error();
     }
+    console.log(tmpState)
     return tmpState
 }

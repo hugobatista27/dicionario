@@ -15,8 +15,6 @@ const BodyStyle = styled.div`
 
 function App() {
 	const { state } = useAppContext();
-
-	console.log({state})
 	
 	return (
 		<BodyStyle>

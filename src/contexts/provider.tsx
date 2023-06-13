@@ -16,8 +16,22 @@ export const AppContextProvider = ({ children } : IProps) => {
         })
     }, [dispatch]);
 
+    const changeFont = useCallback((font: string) => {
+        dispatch({
+            type: AppContextActions.SelectedFont,
+            payload: font
+        })
+    }, [dispatch])
+
     return (
-        <AppContext.Provider value={{state, toggleTheme}}>
+        <AppContext.Provider 
+            value={
+                {
+                    state, 
+                    toggleTheme,
+                    changeFont
+                }
+            }>
             {children}
         </AppContext.Provider>
     )
