@@ -5,7 +5,7 @@ import ICON_SUN from './assets/sol.svg';
 import { useAppContext } from '../../contexts/hook';
 
 
-const StyledLabel = styled.label<{$mode?: string}>`
+const StyledLabel = styled.label<{$theme?: string}>`
     position: relative;
     display: inline-block;
 
@@ -13,7 +13,6 @@ const StyledLabel = styled.label<{$mode?: string}>`
     height: 20px;
     border-radius: 10px;
 
-    background-color: ${props => props.$mode === 'dark' ? 'black': 'white'};
 
     input {
         opacity: 0;
@@ -30,6 +29,10 @@ const StyledLabel = styled.label<{$mode?: string}>`
         bottom: 0;
         -webkit-transition: .4s;
         transition: .4s;
+        background-color: ${props => props.$theme === 'light' ? 'black' : 'white'};
+        border-radius: 10px;
+
+
     }
 
     span:before {
@@ -40,7 +43,7 @@ const StyledLabel = styled.label<{$mode?: string}>`
         left: 2px;
         bottom: 2px;
         border-radius: 50%;
-        background-color: ${props => props.$mode === 'dark' ? 'white': 'black'};
+        background-color: ${props => props.$theme === 'light' ? 'white' : 'black'};
         -webkit-transition: .4s;
         transition: .4s;
     }
@@ -49,6 +52,12 @@ const StyledLabel = styled.label<{$mode?: string}>`
         -webkit-transform: translateX(20px);
         -ms-transform: translateX(20px);
         transform: translateX(20px);
+        background-color: ${props => props.$theme === 'light' ? 'white' : 'black'};
+    }
+    
+    input:checked + span {
+        border-radius: 10px;
+        background-color: ${props => props.$theme === 'light' ? 'black' : 'white'};
     }
 `
 
@@ -60,7 +69,7 @@ const Div = styled.div`
 `
 
 function iconSwitcher(selectedTheme: string) {
-    return selectedTheme === 'dark' ? 
+    return selectedTheme === 'light' ? 
     <img src={ICON_SUN} alt="light mode" /> : 
     <img src={ICON_MOON} alt="dark mode" />
 }
@@ -73,7 +82,7 @@ export function Switcher() {
         <Div>
             <StyledLabel 
                 htmlFor="modo-switcher"
-                $mode={state.selectedTheme}
+                $theme={state.selectedTheme}
             >
                 <input 
                     type="checkbox" 

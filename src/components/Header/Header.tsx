@@ -1,13 +1,11 @@
 import styled from 'styled-components';
+import { useAppContext } from '../../contexts/hook';
 
-//imgs
 import LOGO_BOOK from './assets/livro.svg';
+import { FONTS_OPTIONS } from '../../styles/fonts';
 
-// components 
 import { Switcher } from './SwitcherVisionMode';
 
-/* import MainContext from '../../contexts/MainContext';
-import { useContext } from 'react'; */
 
 const StyledHeader = styled.header`
     display: flex;
@@ -21,15 +19,22 @@ const StyledHeader = styled.header`
     }
 `;
 
+
+
 export function Header() {
+	const { changeFont } = useAppContext();
 
     return (
         <StyledHeader>
             <img src={LOGO_BOOK} alt="logo" />
-            <select name="" id="">
-                <option value="serif">Serif</option>
-                <option value="noserif">San Serif</option>
-                <option value="mono">Mono</option>
+            <select onChange={(e) => changeFont(e.target.value)}>
+                {FONTS_OPTIONS.map(
+                    (font, index) => 
+                    <option 
+                        key={font.fontName + index} 
+                        value={font.fontName}>
+                            {font.style}
+                    </option>)}
             </select>
             <Switcher/>
         </StyledHeader>

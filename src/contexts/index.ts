@@ -1,8 +1,9 @@
 import { createContext } from 'react';
+import { FONTS_OPTIONS } from '../styles/fonts';
 
 export const INITIAL_STATE = {
     selectedTheme: 'light',
-    selectedFont: 'serif'
+    selectedFont: FONTS_OPTIONS[0].fontName
 };
 
 export type InitialStateType = typeof INITIAL_STATE;
