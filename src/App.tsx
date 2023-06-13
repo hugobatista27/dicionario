@@ -4,7 +4,6 @@ import { Footer} from './components/Footer/Footer.js'
 
 import {createGlobalStyle } from 'styled-components';
 
-import { getWord } from './routes/fetchWord.js'
 import { useAppContext } from './contexts/hook.js';
 
 const BodyStyle = createGlobalStyle<{$fontFamily: string, $theme: string}>`

@@ -16,9 +16,11 @@ export const appContextReducer = (
         case AppContextActions.SelectedFont:
             state.selectedFont = action.payload
             break;
+        case AppContextActions.SearchedWord:
+            state.searchedWord = action.payload
+            break
         default:
             throw new Error();
     }
-    console.log(tmpState)
     return tmpState
 }

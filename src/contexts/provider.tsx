@@ -23,13 +23,21 @@ export const AppContextProvider = ({ children } : IProps) => {
         })
     }, [dispatch])
 
+    const setSearchResult = useCallback((word: any) => {
+        dispatch({
+            type: AppContextActions.SearchedWord,
+            payload: word
+        })
+    }, [dispatch])
+
     return (
         <AppContext.Provider 
             value={
                 {
                     state, 
                     toggleTheme,
-                    changeFont
+                    changeFont,
+                    setSearchResult
                 }
             }>
             {children}
