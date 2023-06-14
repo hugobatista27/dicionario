@@ -1,9 +1,15 @@
+import { useAppContext } from '../../contexts/hook';
 import LINK_ICON from './assets/link.svg'
 
 import styled from 'styled-components';
 
 const FooterStyle = styled.footer`
     margin-top: 40px;
+
+    &:last-child{
+        margin-bottom: 50px;
+    }
+
     hr {
         width: 100%;
         background-color: #D9D9D9;
@@ -14,8 +20,7 @@ const FooterStyle = styled.footer`
         display: flex;
         gap: 16px;
 
-        padding: 24px 0;
-        margin-bottom: 50px;
+        padding-top: 24px;
 
         p, a {
             font-weight: 400;
@@ -29,17 +34,31 @@ const FooterStyle = styled.footer`
             }
         }
     }
+    
 `
 
 export function Footer() {
+    const { state } = useAppContext();
+
     return (
         <FooterStyle>
             <hr />
+            {state.searchedWord.status === 'sucess' && (
+                <div>
+                    <p>Source:</p>
+                    <a href={state.searchedWord.sourceUrls[0]} target='_blank'>
+                        <span>
+                            {state.searchedWord.sourceUrls[0]}
+                        </span>
+                        <img src={LINK_ICON}/>
+                    </a>
+                </div>
+            )}
             <div>
-                <p>Source:</p>
-                <a href={`https://en.wiktionary.org/wiki/${'hello'}`}>
+                <p>By:</p>
+                <a href={'https://github.com/hugobatista27'} target='_blank'>
                     <span>
-                        {`https://en.wiktionary.org/wiki/${'hello'}`}
+                        {'Hugo Batista'}
                     </span>
                     <img src={LINK_ICON}/>
                 </a>
