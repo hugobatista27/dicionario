@@ -57,6 +57,7 @@ const Results = styled.div`
 
             ul {
                 display: flex;
+                flex-wrap: wrap;
                 gap: 12px;
                 li {
                     color: #A169C9;
@@ -65,16 +66,6 @@ const Results = styled.div`
         }
     }
 `
-
-const antonyms: string[] = [
-    'bye',
-    'goodbye'
-]
-
-const synonyms: string[] = [
-    'hey',
-    'hi'
-]
 
 function listItens(array: string[]):any {
     return (
@@ -92,7 +83,7 @@ function listItens(array: string[]):any {
 export default function ResultFromSearch() {
     const { state } = useAppContext();
 
-    if (Object.keys(state.searchedWord).length !== 0) {
+    if (state.searchedWord.status === 'sucess') {
         return state.searchedWord.meanings.map((meaning: any) => {
             return (
                 <Results>
@@ -122,10 +113,7 @@ export default function ResultFromSearch() {
                     </div>
                 </Results>
             )
-    
         })
-    
     }
-
     return <></>
 }

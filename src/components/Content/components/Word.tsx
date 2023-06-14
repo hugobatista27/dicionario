@@ -1,7 +1,5 @@
 import PLAYER_IMG from '../assets/play.svg';
 
-import { useState } from 'react';
-
 import styled from 'styled-components';
 import { useAppContext } from '../../../contexts/hook';
 
@@ -36,19 +34,23 @@ const WordAreaStyle = styled.div`
 
 export default function Word() {
     const { state } = useAppContext();
+    console.log(state.searchedWord)
 
-    if ( Object.keys(state.searchedWord).length !== 0) {
+    if ( state.searchedWord.status === 'sucess') {
         return (
             <WordAreaStyle>
                 <div>
                     <h1>{state.searchedWord.word}</h1>
-                    <p>{state.searchedWord.phonetics[1].text}</p>  
+                    <p>{state.searchedWord.phonetic}</p>  
                 </div>
                 <button>
                     <img src={PLAYER_IMG} alt="Listen word" />
                 </button>
             </WordAreaStyle>
         )
+    }
+    if (state.searchedWord.status === 'erro') {
+        return <p>Busca inválida, tente novamente</p>
     }
 
     return (
