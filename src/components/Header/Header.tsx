@@ -14,12 +14,25 @@ const StyledHeader = styled.header`
 
     height: 150px;
 
-    select {
-        border: none;
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        gap: 25px;
+        select {
+            border: none;
+            font-size: 16px;
+        }
     }
 `;
 
-
+const Divider = styled.div`
+    height: 100%;
+    width: 1px;
+    background-color: var(--fontColor);
+    
+`
 
 export function Header() {
 	const { changeFont } = useAppContext();
@@ -27,16 +40,19 @@ export function Header() {
     return (
         <StyledHeader>
             <img src={LOGO_BOOK} alt="logo" />
-            <select onChange={(e) => changeFont(e.target.value)}>
-                {FONTS_OPTIONS.map(
-                    (font, index) => 
-                    <option 
-                        key={font.fontName + index} 
-                        value={font.fontName}>
-                            {font.style}
-                    </option>)}
-            </select>
-            <Switcher/>
+            <div>
+                <select onChange={(e) => changeFont(e.target.value)}>
+                    {FONTS_OPTIONS.map(
+                        (font, index) =>
+                        <option
+                            key={font.fontName + index}
+                            value={font.fontName}>
+                                {font.style}
+                        </option>)}
+                </select>
+                <Divider/>
+                <Switcher/>
+            </div>
         </StyledHeader>
     )
 }

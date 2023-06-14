@@ -9,20 +9,22 @@ const SearchArea = styled.label`
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #D9D9D9; // cor padrão, adicionar a variável
+    background-color: var(--secondaryColor);
     border-radius: 12px;
     padding: 18px 24px;
 
     input {
         flex: 1;
+        color: var(--secondaryFontColor);
         background-color: transparent;
         font-size: 20px;
+        background-color: transparent !important;
     }
     input:focus {
         outline: none;
     }
     img{
-        background-color: #D9D9D9;
+        background-color: var(--secondaryColor);
     }
 
 `

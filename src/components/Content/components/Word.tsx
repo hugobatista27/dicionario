@@ -27,7 +27,10 @@ const WordAreaStyle = styled.div`
         width: 75px;
         height: 75px;
         border-radius: 50%;
-
+        background-color: var(--secondaryColor);
+        img {
+            background-color: transparent;
+        }
     }
 
 `
