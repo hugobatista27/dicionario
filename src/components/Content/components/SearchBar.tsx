@@ -1,7 +1,7 @@
 import SEARCH_ICON from '../assets/lupa.svg';
 
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
+import { useState, KeyboardEvent } from 'react';
 import { useAppContext } from '../../../contexts/hook';
 import { getWord } from '../../../routes/fetchWord';
 
@@ -28,29 +28,24 @@ const SearchArea = styled.label`
 `
 
 export default function SearchBar() {
-    const [isEditing, setIsEditing] = useState(false);
     const [search, setSearch] = useState<string>('');
     const { setSearchResult } : any = useAppContext()
 
-    useEffect(() => {
-        if (isEditing) {
-            document.addEventListener('keydown', (event) => {
-                if (event.key === "Enter") {
-                    setIsEditing(false)
-                }
-            })
-        } 
-        if(search && !isEditing) {
+    const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
             getWord(search, setSearchResult)
         }
-    }, [isEditing])
+    }
 
     return (
         <SearchArea htmlFor="setSearchResult">
-            <input type="text" id="setSearchResult" placeholder='Search' 
-            onFocus={() => setIsEditing(true)}
-            onChange={(e) => setSearch(e.target.value)}
-            />
+            <input 
+                type="text" 
+                id="setSearchResult" 
+                placeholder='Search'
+                onChange={(event) => setSearch(event.target.value)}
+                onKeyDown={handleKeyDown}
+                />
             <img src={SEARCH_ICON} alt="Search"/>
         </SearchArea>
     )
