@@ -7,6 +7,13 @@ import {createGlobalStyle } from 'styled-components';
 import { useAppContext } from './contexts/hook.js';
 
 const BodyStyle = createGlobalStyle<{$fontFamily: string, $theme: string}>`
+	:root {
+		--fontColor: ${props => props.$theme === 'light' ? 'black': 'white'};
+		--bgColor: ${props => props.$theme === 'light' ? 'white': '#161616'};
+		--secondaryColor: ${props => props.$theme === 'light' ? '#D9D9D9': '#000000'};
+		--secondaryFontColor: ${props => props.$theme === 'light' ? '#9b9b9b': '#D9D9D9 '};
+	}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -14,8 +21,8 @@ const BodyStyle = createGlobalStyle<{$fontFamily: string, $theme: string}>`
 		border: 0;
 		list-style: none;
 		font-family: ${props => props.$fontFamily};
-		background-color: ${props => props.$theme === 'light' ? 'white': 'black'};
-		color: ${props => props.$theme === 'light' ? 'black': 'white'};
+		background-color: var(--bgColor);
+		color: var(--fontColor);
 	}
 	
 	body {
