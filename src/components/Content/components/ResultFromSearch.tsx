@@ -29,8 +29,11 @@ const Results = styled.div`
         }
         ul {
             li {
+                display: flex;
+                flex: 1;
                 font-weight: 400;
                 font-size: 20px;
+                margin-bottom: 16px;
                 span {
                     color: #A169C9;
                     font-size: 20px;
