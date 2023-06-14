@@ -35,21 +35,18 @@ const WordAreaStyle = styled.div`
 `
 
 export default function Word() {
-    const [searchedWord, setSearchedWord] = useState<string>('Keyboard');
-    const [phonetic, setPhonetic] = useState<string>(`/'ki:b:d/`)
     const { state } = useAppContext();
 
-    if (state.searchedWord.length > 0) {
+    if ( Object.keys(state.searchedWord).length !== 0) {
         return (
             <WordAreaStyle>
                 <div>
-                    <h1>{state.searchedWord[0].word}</h1>
-                    <p>{state.searchedWord[0].phonetics[1].text}</p>  
+                    <h1>{state.searchedWord.word}</h1>
+                    <p>{state.searchedWord.phonetics[1].text}</p>  
                 </div>
                 <button>
                     <img src={PLAYER_IMG} alt="Listen word" />
                 </button>
-            
             </WordAreaStyle>
         )
     }

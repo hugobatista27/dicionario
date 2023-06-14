@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
+import { useAppContext } from '../../../contexts/hook';
 
 const Results = styled.div`
     .classification {
@@ -9,7 +9,7 @@ const Results = styled.div`
 
         margin: 38px 0;
 
-        strong {
+        h2 {
             font-style: italic;
             font-weight: 700;
             font-size: 24px;
@@ -21,7 +21,7 @@ const Results = styled.div`
         }
     }
     .meaning {
-        h2 {
+        h3 {
             margin: 24px 0;
 
             font-weight: 400;
@@ -90,35 +90,42 @@ function listItens(array: string[]):any {
 }
 
 export default function ResultFromSearch() {
-    return (
-        <Results>
-            <div className='classification'>
-                {/* classificação da palavra, pode ter várias classificações colocar um .map*/}
-                <strong>noun</strong> 
-                <hr />
-            </div>
-            <div className='meaning'>
-                <h2>Meaning</h2>
-                <ul>
-                    {/* array.map return li */}
-                    <li><span>&#8226;</span> (etc)</li>
-                    <li><span>&#8226;</span> testee</li>
-                </ul>
-            </div>
-            <div className='synonyms-antonyms'>
-                {synonyms.length != 0 && (
-                    <div>
-                        <h4>Synonyms</h4>
-                        {listItens(synonyms)}
+    const { state } = useAppContext();
+
+    if (Object.keys(state.searchedWord).length !== 0) {
+        return state.searchedWord.meanings.map((meaning: any) => {
+            return (
+                <Results>
+                    <div className='classification'>
+                        <h2>{meaning.partOfSpeech}</h2> 
+                        <hr />
                     </div>
-                )}
-                {antonyms.length != 0 && (
-                    <div>
-                        <h4>Antonyms</h4>                       
-                        {listItens(antonyms)}                       
+                    <div className='meaning'>
+                        <h3>Meaning</h3>
+                        <ul>
+                            {meaning.definitions.map((example: any) => <li><span>&#8226;</span>{example.definition}</li>)}
+                        </ul>
                     </div>
-                )}
-            </div>
-        </Results>
-    )
+                    <div className='synonyms-antonyms'>
+                        {meaning.synonyms.length > 0 && (
+                            <div>
+                                <h4>Synonyms</h4>
+                                {listItens(meaning.synonyms)}
+                            </div>
+                        )}
+                        {meaning.antonyms.length > 0 && (
+                            <div>
+                                <h4>Antonyms</h4>                       
+                                {listItens(meaning.antonyms)}                       
+                            </div>
+                        )}
+                    </div>
+                </Results>
+            )
+    
+        })
+    
+    }
+
+    return <></>
 }

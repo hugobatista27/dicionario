@@ -4,7 +4,7 @@ import { FONTS_OPTIONS } from '../styles/fonts';
 export const INITIAL_STATE = {
     selectedTheme: 'light',
     selectedFont: FONTS_OPTIONS[0].fontName,
-    searchedWord: [] as any
+    searchedWord: {} as any
 };
 
 export type InitialStateType = typeof INITIAL_STATE;
