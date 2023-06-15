@@ -113,6 +113,7 @@ const Styles = {
     AdviceParagraph: styled.p<{$alertColor?: string }>`
         color: ${props => !props.$alertColor ? '' : props.$alertColor}; 
         margin: 16px 0 0 10px;
+        font-size: var(--footer-font);
     `,
 
     SearchArea: styled.label`
