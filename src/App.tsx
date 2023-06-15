@@ -17,7 +17,7 @@ const BodyStyle = createGlobalStyle<{$fontFamily: string, $theme: string}>`
 		--h2Font-size: 20px;
 		--h3Font-size: 18px;
 		--mainFont-size: 16px;
-		--footer-font: 12px;
+		--footer-font: 14px;
 	}
 
 	* {
