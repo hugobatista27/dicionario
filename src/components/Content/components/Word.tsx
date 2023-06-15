@@ -19,10 +19,14 @@ export default function Word() {
                     <h1>{state.searchedWord.word}</h1>
                     <p>{state.searchedWord.phonetic}</p>  
                 </div>
-                <button
-                    onClick={playAudio}>
-                    <img src={PLAYER_IMG} alt="Listen word" />
-                </button>
+                {
+                   state.searchedWord.phonetics[0].audio && (
+                    <button
+                        onClick={playAudio}>
+                        <img src={PLAYER_IMG} alt="Listen word" />
+                    </button>
+                   )
+                }
             </Styles.WordAreaStyle>
         )
     }
