@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { Styles } from '../../styles/styled-components';
 import { useAppContext } from '../../contexts/hook';
 
 import LOGO_BOOK from './assets/livro.svg';
@@ -6,39 +6,11 @@ import { FONTS_OPTIONS } from '../../styles/fonts';
 
 import { Switcher } from './SwitcherVisionMode';
 
-
-const StyledHeader = styled.header`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    height: 150px;
-
-    div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 40px;
-        gap: 25px;
-        select {
-            border: none;
-            font-size: 16px;
-        }
-    }
-`;
-
-const Divider = styled.div`
-    height: 100%;
-    width: 1px;
-    background-color: var(--fontColor);
-    
-`
-
 export function Header() {
 	const { changeFont } = useAppContext();
 
     return (
-        <StyledHeader>
+        <Styles.StyledHeader>
             <img src={LOGO_BOOK} alt="logo" />
             <div>
                 <select onChange={(e) => changeFont(e.target.value)}>
@@ -50,9 +22,9 @@ export function Header() {
                                 {font.style}
                         </option>)}
                 </select>
-                <Divider/>
+                <Styles.Divider/>
                 <Switcher/>
             </div>
-        </StyledHeader>
+        </Styles.StyledHeader>
     )
 }

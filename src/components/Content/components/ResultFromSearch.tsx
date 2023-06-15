@@ -1,83 +1,6 @@
-import styled from 'styled-components';
+import { Styles } from '../../../styles/styled-components';
 import { useAppContext } from '../../../contexts/hook';
 
-const Results = styled.div`
-    .classification {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        margin: 38px 0;
-
-        h2 {
-            font-style: italic;
-            font-weight: 700;
-            font-size: var(--h2Font-size);
-        }
-        hr {
-            width: 100%;
-            background-color: #D9D9D9;
-            height: 1px;
-        }
-    }
-    .meaning {
-        h3 {
-            margin: 24px 0;
-
-            font-weight: 400;
-            font-size: var(--h3Font-size);
-        }
-        ul {
-            li {
-                display: flex;
-                flex: 1;
-                font-weight: 400;
-                font-size: var(--mainFont-size);
-                margin-bottom: 16px;
-                span {
-                    color: #A169C9;
-                    font-size: 24px;
-                    padding: 0 20px;
-                }
-            }
-        }
-        @media (max-width: 600px) {
-            ul {
-                li {
-                    span {
-                        padding: 0 10px;
-                    }
-                }
-            }
-        }
-    }
-    .synonyms-antonyms {
-        display: flex;
-        flex-direction: column;
-        margin-top: 62px;
-        gap: 20px;
-        div {
-            display: flex;
-            gap: 24px;
-
-            h4, ul li{
-                font-style: normal;
-                font-weight: 400;
-                font-size: var(--mainFont-size);
-                line-height: 26px;
-            }
-
-            ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 12px;
-                li {
-                    color: #A169C9;
-                }
-            }
-        }
-    }
-`
 
 function listItens(array: string[]):any {
     return (
@@ -98,7 +21,7 @@ export default function ResultFromSearch() {
     if (state.searchedWord.status === 'sucess') {
         return state.searchedWord.meanings.map((meaning: any) => {
             return (
-                <Results>
+                <Styles.Results>
                     <div className='classification'>
                         <h2>{meaning.partOfSpeech}</h2> 
                         <hr />
@@ -123,7 +46,7 @@ export default function ResultFromSearch() {
                             </div>
                         )}
                     </div>
-                </Results>
+                </Styles.Results>
             )
         })
     }
