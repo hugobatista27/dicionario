@@ -17,7 +17,7 @@ const SearchArea = styled.label`
         flex: 1;
         color: var(--secondaryFontColor);
         background-color: transparent;
-        font-size: 20px;
+        font-size: var(--h3Font-size);
         background-color: transparent !important;
     }
     input:focus {
@@ -26,7 +26,9 @@ const SearchArea = styled.label`
     img{
         background-color: var(--secondaryColor);
     }
-
+    @media (max-width: 600px) {
+        padding: 12px 20px;
+    }
 `
 
 export default function SearchBar() {

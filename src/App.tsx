@@ -12,6 +12,12 @@ const BodyStyle = createGlobalStyle<{$fontFamily: string, $theme: string}>`
 		--bgColor: ${props => props.$theme === 'light' ? 'white': '#161616'};
 		--secondaryColor: ${props => props.$theme === 'light' ? '#D9D9D9': '#000000'};
 		--secondaryFontColor: ${props => props.$theme === 'light' ? '#9b9b9b': '#D9D9D9 '};
+
+		--titleFont-size: 50px;
+		--h2Font-size: 20px;
+		--h3Font-size: 18px;
+		--mainFont-size: 16px;
+		--footer-font: 12px;
 	}
 
 	* {

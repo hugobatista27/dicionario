@@ -24,17 +24,23 @@ const FooterStyle = styled.footer`
 
         p, a {
             font-weight: 400;
-            font-size: 16px;
+            font-size: var(--footer-font);
             color: var(--secondaryFontColor);
         }
         a {
             span {
                 margin-right: 10px;
-
             }
         }
     }
     
+    @media (max-width: 500px){
+        a {
+            span {
+                display: none;
+            }
+        }
+    }
 `
 
 export function Footer() {
@@ -63,6 +69,7 @@ export function Footer() {
                     <img src={LINK_ICON}/>
                 </a>
             </div>
+            
         </FooterStyle>
     )
 }

@@ -12,7 +12,7 @@ const Results = styled.div`
         h2 {
             font-style: italic;
             font-weight: 700;
-            font-size: 24px;
+            font-size: var(--h2Font-size);
         }
         hr {
             width: 100%;
@@ -25,19 +25,28 @@ const Results = styled.div`
             margin: 24px 0;
 
             font-weight: 400;
-            font-size: 20px;
+            font-size: var(--h3Font-size);
         }
         ul {
             li {
                 display: flex;
                 flex: 1;
                 font-weight: 400;
-                font-size: 20px;
+                font-size: var(--mainFont-size);
                 margin-bottom: 16px;
                 span {
                     color: #A169C9;
-                    font-size: 20px;
+                    font-size: 24px;
                     padding: 0 20px;
+                }
+            }
+        }
+        @media (max-width: 600px) {
+            ul {
+                li {
+                    span {
+                        padding: 0 10px;
+                    }
                 }
             }
         }
@@ -54,7 +63,7 @@ const Results = styled.div`
             h4, ul li{
                 font-style: normal;
                 font-weight: 400;
-                font-size: 20px;
+                font-size: var(--mainFont-size);
                 line-height: 26px;
             }
 
