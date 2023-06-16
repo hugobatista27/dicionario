@@ -30,6 +30,10 @@ const GlobalStyle = createGlobalStyle<{$fontFamily: string, $theme: string}>`
         margin: auto;
         padding: 0 20px;
     }
+
+    main {
+        flex-grow: 1;
+    }
 `
 
 const Styles = {
