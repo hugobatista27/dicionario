@@ -12,6 +12,6 @@ export type InitialStateType = typeof INITIAL_STATE;
 export const AppContext = createContext({
     state: INITIAL_STATE,
     toggleTheme: () => {},
-    changeFont: (font: string) => {},
-    setSearchResult: (word: any) => {}
+    changeFont: (_font: string) => {},
+    setSearchResult: (_word: any) => {}
 });
