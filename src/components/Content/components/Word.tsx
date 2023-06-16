@@ -30,11 +30,4 @@ export default function Word() {
             </Styles.WordAreaStyle>
         )
     }
-    if (state.searchedWord.status === 'erro') {
-        return <Styles.AdviceParagraph $alertColor={'red'}>Invalid search, try again...</Styles.AdviceParagraph>
-    }
-
-    return (
-        <Styles.AdviceParagraph>Search for a word...</Styles.AdviceParagraph>
-    )
 }
