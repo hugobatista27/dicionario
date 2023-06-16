@@ -54,6 +54,15 @@ const Styles = {
             select {
                 border: none;
                 font-size: 16px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        @media (max-width: 600px) {
+            select, option {
+                font-size: 14px !important;
             }
         }
     `,
@@ -63,6 +72,71 @@ const Styles = {
         width: 1px;
         background-color: var(--fontColor);
     `,
+
+    Switcher: styled.label<{$theme?: string}>`
+        position: relative;
+        display: inline-block;
+
+        width: 40px;
+        height: 20px;
+        border-radius: 10px;
+
+
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        span {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: .4s;
+            transition: .4s;
+            background-color: ${props => props.$theme === 'light' ? 'black' : 'white'};
+            border-radius: 10px;
+        }
+
+        span:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            border-radius: 50%;
+            background-color: ${props => props.$theme === 'light' ? 'white' : 'black'};
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + span:before {
+            -webkit-transform: translateX(20px);
+            -ms-transform: translateX(20px);
+            transform: translateX(20px);
+            background-color: ${props => props.$theme === 'light' ? 'white' : 'black'};
+        }
+        
+        input:checked + span {
+            border-radius: 10px;
+            background-color: ${props => props.$theme === 'light' ? 'black' : 'white'};
+        }
+    `,
+
+    ContainerSwitcher: styled.div`
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        label {
+            cursor: pointer;
+        }
+    `,
+
 
     // content
     WordAreaStyle: styled.div`
@@ -92,6 +166,14 @@ const Styles = {
             background-color: var(--secondaryColor);
             img {
                 background-color: transparent;
+            }
+            &:hover {
+                cursor: pointer;
+                border: 1px solid var(--fontColor);
+                img {
+                    transition: 0.5;
+                    transform: scale(1.4);
+                }
             }
         }
 

@@ -24,6 +24,7 @@ export default function SearchBar() {
                 placeholder='Search'
                 onChange={(event) => setSearch(event.target.value)}
                 onKeyDown={handleKeyDown}
+                autoComplete='off'
                 />
             <img src={SEARCH_ICON} alt="Search"/>
         </Styles.SearchArea>
