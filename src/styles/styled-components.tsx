@@ -168,29 +168,6 @@ const Styles = {
                 font-weight: 400;
                 font-size: var(--h3Font-size);
             }
-            ul {
-                li {
-                    display: flex;
-                    flex: 1;
-                    font-weight: 400;
-                    font-size: var(--mainFont-size);
-                    margin-bottom: 16px;
-                    span {
-                        color: #A169C9;
-                        font-size: 24px;
-                        padding: 0 20px;
-                    }
-                }
-            }
-            @media (max-width: 600px) {
-                ul {
-                    li {
-                        span {
-                            padding: 0 10px;
-                        }
-                    }
-                }
-            }
         }
         .synonyms-antonyms {
             display: flex;
@@ -258,7 +235,27 @@ const Styles = {
                 }
             }
         }
+    `,
+
+    ExampleStyle: styled.li<{$show: boolean}>`
+        display: ${props => props.$show ? 'flex' : 'none'};
+        flex: 1;
+        font-weight: 400;
+        font-size: var(--mainFont-size);
+        margin-bottom: 16px;
+        span {
+            color: #A169C9;
+            font-size: 24px;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 600px) {
+            span {
+                font-size: 20px;
+                padding: 0 10px;
+            }
+        }
     `
-}
+} as any;
 
 export { GlobalStyle, Styles }

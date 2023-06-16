@@ -1,7 +1,6 @@
 import { Styles } from '../../../styles/styled-components';
 import { useAppContext } from '../../../contexts/hook';
 import { useState } from 'react';
-import { styled } from 'styled-components';
 
 
 function listItens(array: string[]):any {
@@ -37,9 +36,7 @@ export default function ResultFromSearch() {
     return <></>
 }
 
-const ExampleStyle = styled.li<{$show: boolean}>`
-    display: ${props => props.$show ? 'flex' : 'none'} !important;
-`
+
 
 function Meanings ({meaning}: any) {
     const definitions: string[] = meaning.definitions;
@@ -57,19 +54,19 @@ function Meanings ({meaning}: any) {
                 {definitions.map((example: any, index: number) => {
                     if(index < numbeOfExamples) {
                         return (
-                            <ExampleStyle $show={true}
+                            <Styles.ExampleStyle $show={true}
                                 key={example.definition + index}>
                                 <span>&#8226;</span>
                                 {example.definition}
-                            </ExampleStyle>
+                            </Styles.ExampleStyle>
                         )
                     } else {
                         return (
-                            <ExampleStyle $show={seeMoreExamples}
+                            <Styles.ExampleStyle $show={seeMoreExamples}
                                 key={example.definition + index}>
                                 <span>&#8226;</span>
                                 {example.definition}
-                            </ExampleStyle>
+                            </Styles.ExampleStyle>
                         )
                     }
                 })}
