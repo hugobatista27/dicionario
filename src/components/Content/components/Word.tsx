@@ -31,10 +31,10 @@ export default function Word() {
         )
     }
     if (state.searchedWord.status === 'erro') {
-        return <Styles.AdviceParagraph $alertColor={'red'}>Busca inválida, tente novamente</Styles.AdviceParagraph>
+        return <Styles.AdviceParagraph $alertColor={'red'}>Invalid search, try again...</Styles.AdviceParagraph>
     }
 
     return (
-        <Styles.AdviceParagraph>Pesquise por um palavra</Styles.AdviceParagraph>
+        <Styles.AdviceParagraph>Search for a word...</Styles.AdviceParagraph>
     )
 }
