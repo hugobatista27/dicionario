@@ -61,6 +61,8 @@ const Styles = {
         }
 
         @media (max-width: 600px) {
+            height: 100px;
+
             select, option {
                 font-size: 14px !important;
             }
