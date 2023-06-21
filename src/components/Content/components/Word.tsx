@@ -20,7 +20,7 @@ export default function Word() {
                     <p>{state.searchedWord.phonetic}</p>  
                 </div>
                 {
-                   state.searchedWord.phonetics[0].audio && (
+                   (state.searchedWord.phonetics.length != 0 && state.searchedWord.phonetics[0].audio) && (
                     <button
                         onClick={playAudio}>
                         <img src={PLAYER_IMG} alt="Listen word" />

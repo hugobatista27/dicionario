@@ -14,10 +14,10 @@ export const appContextReducer = (
             tmpState.selectedTheme = state.selectedTheme === 'light' ? 'dark' : 'light'
             break;
         case AppContextActions.SelectedFont:
-            state.selectedFont = action.payload
+            tmpState.selectedFont = action.payload
             break;
         case AppContextActions.SearchedWord:
-            state.searchedWord = action.payload
+            tmpState.searchedWord = action.payload
             break
         default:
             throw new Error();
