@@ -22,7 +22,7 @@ export function Footer() {
                 </div>
             )}
             <div>
-                <p>By:</p>
+                <p>Repositorie:</p>
                 <a href={'https://github.com/hugobatista27'} target='_blank'>
                     <span>
                         {'Hugo Batista'}
